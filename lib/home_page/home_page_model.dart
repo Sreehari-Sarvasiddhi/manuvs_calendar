@@ -1,3 +1,4 @@
+import 'package:manuvs_calendar/day_detail_component/day_detail_component_model.dart';
 import 'package:manuvs_calendar/home_page/home_page_widget.dart';
 import 'package:manuvs_calendar/model_and_themes/flultter_flow_model.dart';
 import 'package:manuvs_calendar/month_view_component/month_view_component_model.dart';
@@ -13,19 +14,20 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
 
   // Model for MonthViewComponent component.
   late MonthViewComponentModel monthViewComponentModel;
-  // Model for sendNotification component.
-  // late SendNotificationModel sendNotificationModel;
+  // Model for DayDetailComponent component.
+  late DayDetailComponentModel dayDetailComponentModel;
 
   @override
   void initState(BuildContext context) {
     monthViewComponentModel =
         createModel(context, () => MonthViewComponentModel());
-    // sendNotificationModel = createModel(context, () => SendNotificationModel());
+    dayDetailComponentModel =
+        createModel(context, () => DayDetailComponentModel());
   }
 
   @override
   void dispose() {
     monthViewComponentModel.dispose();
-    // sendNotificationModel.dispose();
+    dayDetailComponentModel.dispose();
   }
 }

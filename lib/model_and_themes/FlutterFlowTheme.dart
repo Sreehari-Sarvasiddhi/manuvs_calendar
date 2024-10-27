@@ -16,7 +16,7 @@ class FlutterFlowTheme {
   // Brand colors
   Color get primary => const Color(0xFF4b39ef);
   Color get secondary => const Color(0xFF39d2c0);
-  Color get teritiary => const Color(0xFFee8b60);
+  Color get tertiary => const Color(0xFFee8b60);
   Color get alternate => const Color(0xFFe0e3e7);
 
   // Semantic colors
@@ -49,7 +49,19 @@ class FlutterFlowTheme {
   TextStyleWithOverride get labelMedium => const TextStyleWithOverride(
     fontSize: 14,
     color: Color(0xFF14181B),
-    fontWeight: FontWeight.normal, // semi bold
+    fontWeight: FontWeight.normal,
+  );
+
+  TextStyleWithOverride get bodyLarge => const TextStyleWithOverride(
+    fontSize: 16,
+    color: Color(0xFF14181B),
+    fontWeight: FontWeight.normal,
+  );
+
+  TextStyleWithOverride get titleMedium => const TextStyleWithOverride(
+    fontSize: 18,
+    color: Color(0xFF14181B),
+    fontWeight: FontWeight.w600, // semi bold
   );
 
 }

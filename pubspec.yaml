@@ -42,11 +42,14 @@ dependencies:
   intl: ^0.18.0
   page_transition: ^2.1.0
   json_path: ^0.7.0
-  timeago: 3.6.1
-  from_css_color: 2.0.0
+  timeago: ^3.6.1
+  from_css_color: ^2.0.0
+  google_fonts: ^6.1.0
+  http: ^1.2.2
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  provider: ^6.1.2
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

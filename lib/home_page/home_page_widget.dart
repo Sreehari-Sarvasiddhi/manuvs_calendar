@@ -6,9 +6,13 @@ import 'package:manuvs_calendar/model_and_themes/flutter_flow_helpers.dart';
 import 'package:manuvs_calendar/model_and_themes/flutter_flow_icon_button.dart';
 import 'package:manuvs_calendar/month_view_component/month_view_component_widget.dart';
 import 'package:manuvs_calendar/model_and_themes/internationalization.dart';
-
+import 'package:manuvs_calendar/model_and_themes/custom_functions.dart';
+import 'package:manuvs_calendar/day_detail_component/day_detail_component_widget.dart';
 import 'home_page_model.dart';
 export 'home_page_model.dart';
+
+
+import 'package:flutter/rendering.dart';
 
 class HomePageWidget extends StatefulWidget {
   const HomePageWidget({super.key});
@@ -147,15 +151,14 @@ class _HomePageWidgetState extends State<HomePageWidget> {
               Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  Text(
-                    dateTimeFormat(
-                      "MMMMEEEEd",
-                      _model.selectedDate,
-                      locale: FFLocalizations.of(context).languageCode,
-                    ),
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Inter',
-                      letterSpacing: 0.0,
+                  wrapWithModel(
+                    model: _model.dayDetailComponentModel,
+                    updateCallback: () => safeSetState(() {}),
+                    updateOnChange: true,
+                    child: DayDetailComponentWidget(
+                      date: _model.selectedDate != null
+                          ? _model.selectedDate!
+                          : getCurrentTimestamp,
                     ),
                   ),
                 ],

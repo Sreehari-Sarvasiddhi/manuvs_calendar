@@ -231,7 +231,7 @@ class _MonthViewComponentWidgetState extends State<MonthViewComponentWidget> {
               child: Builder(
                 builder: (context) {
                   final calendar =
-                  functions.getCalendarForMonth(_model.inputDate!).toList();
+                  functions.getCalendarForMonth(_model.inputDate ?? DateTime.now()).toList();
 
                   return GridView.builder(
                     padding: EdgeInsets.zero,
