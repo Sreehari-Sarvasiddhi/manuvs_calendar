@@ -1,7 +1,5 @@
 import 'package:manuvs_calendar/model_and_themes/flultter_flow_model.dart';
 
-// import '/backend/api_requests/api_calls.dart';
-// import '/backend/schema/structs/index.dart';
 import 'day_detail_component_widget.dart' show DayDetailComponentWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';

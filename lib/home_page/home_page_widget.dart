@@ -20,10 +20,8 @@ class HomePageWidget extends StatefulWidget {
   @override
   State<HomePageWidget> createState() => _HomePageWidgetState();
 }
-
 class _HomePageWidgetState extends State<HomePageWidget> {
   late HomePageModel _model;
-
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -43,6 +41,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    var screenSize = MediaQuery.of(context).size;
+
+    print("screen height :: " + screenSize.height.toString() );
+    print("screen width :: " + screenSize.width.toString() );
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
@@ -61,7 +63,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       alignment: const AlignmentDirectional(-1.0, -1.0),
                       child: Padding(
                         padding: const EdgeInsetsDirectional.fromSTEB(
-                            15.0, 10.0, 0.0, 0.0),
+                          15.0,
+                          10.0,
+                          0.0,
+                          0.0,
+                        ),
                         child: FlutterFlowIconButton(
                           borderRadius: 8.0,
                           buttonSize: 41.0,
@@ -89,8 +95,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Container(
-                width: 402.0,
-                height: 60.0,
+                width: screenSize.width,
+                height: MediaQuery.of(context).size.height/13.5,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).secondaryBackground,
                   borderRadius: const BorderRadius.only(
@@ -137,37 +143,43 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   ],
                 ),
               ),
-              wrapWithModel(
-                model: _model.monthViewComponentModel,
-                updateCallback: () => safeSetState(() {}),
-                child: MonthViewComponentWidget(
-                  inputDate: getCurrentTimestamp,
-                  onSelectDateAction: (selectedDate) async {
-                    _model.selectedDate = selectedDate;
-                    safeSetState(() {});
-                  },
+              Expanded(
+                child: Container(
+                  width: screenSize.width,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      wrapWithModel(
+                        model: _model.monthViewComponentModel,
+                        updateCallback: () => safeSetState(() {}),
+                        child: MonthViewComponentWidget(
+                          inputDate: getCurrentTimestamp,
+                          onSelectDateAction: (selectedDate) async {
+                            _model.selectedDate = selectedDate;
+                            safeSetState(() {});
+                          },
+                        ),
+                      ),
+                      Wrap(
+                        spacing: 16.0,
+                        runSpacing: 16.0,
+                        children: [
+                          wrapWithModel(
+                            model: _model.dayDetailComponentModel,
+                            updateCallback: () => safeSetState(() {}),
+                            updateOnChange: true,
+                            child: DayDetailComponentWidget(
+                              date: _model.selectedDate != null
+                                  ? _model.selectedDate!
+                                  : getCurrentTimestamp,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
-              Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  wrapWithModel(
-                    model: _model.dayDetailComponentModel,
-                    updateCallback: () => safeSetState(() {}),
-                    updateOnChange: true,
-                    child: DayDetailComponentWidget(
-                      date: _model.selectedDate != null
-                          ? _model.selectedDate!
-                          : getCurrentTimestamp,
-                    ),
-                  ),
-                ],
-              ),
-              // wrapWithModel(
-              //   model: _model.sendNotificationModel,
-              //   updateCallback: () => safeSetState(() {}),
-              //   child: const SendNotificationWidget(),
-              // ),
             ],
           ),
         ),
@@ -175,3 +187,4 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     );
   }
 }
+

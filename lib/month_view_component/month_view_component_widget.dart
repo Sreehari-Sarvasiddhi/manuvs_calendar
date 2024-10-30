@@ -1,4 +1,5 @@
 
+import 'package:google_fonts/google_fonts.dart';
 import 'package:manuvs_calendar/model_and_themes/FlutterFlowTheme.dart';
 import 'package:manuvs_calendar/model_and_themes/flutter_flow_helpers.dart';
 import 'package:manuvs_calendar/model_and_themes/flutter_flow_icon_button.dart';
@@ -66,8 +67,8 @@ class _MonthViewComponentWidgetState extends State<MonthViewComponentWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 406.0,
-      height: 429.0,
+      width: MediaQuery.of(context).size.width,
+      height: MediaQuery.of(context).size.height/2,
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
       ),
@@ -89,7 +90,7 @@ class _MonthViewComponentWidgetState extends State<MonthViewComponentWidget> {
                         locale: FFLocalizations.of(context).languageCode,
                       ),
                       style: FlutterFlowTheme.of(context).labelLarge.override(
-                        fontFamily: 'Inter',
+                        fontFamily: GoogleFonts.montserrat().fontFamily,
                         color: FlutterFlowTheme.of(context).primaryText,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w500,
@@ -102,7 +103,7 @@ class _MonthViewComponentWidgetState extends State<MonthViewComponentWidget> {
                         locale: FFLocalizations.of(context).languageCode,
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Inter',
+                        fontFamily: GoogleFonts.montserrat().fontFamily,
                         fontSize: 16.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w600,
@@ -223,8 +224,8 @@ class _MonthViewComponentWidgetState extends State<MonthViewComponentWidget> {
             ),
           ),
           Container(
-            width: 448.0,
-            height: 323.0,
+            width:  MediaQuery.of(context).size.width,
+            height:  MediaQuery.of(context).size.height/3,
             decoration: const BoxDecoration(),
             child: Padding(
               padding: const EdgeInsetsDirectional.fromSTEB(19.0, 0.0, 19.0, 0.0),
@@ -309,7 +310,7 @@ class _MonthViewComponentWidgetState extends State<MonthViewComponentWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                              fontFamily: 'Inter',
+                              fontFamily: GoogleFonts.montserrat().fontFamily,
                               color: calendarItem.isPreviousMonth ||
                                   calendarItem.isNextMonth
                                   ? (dateTimeFormat(

@@ -7,8 +7,8 @@ import 'package:http/http.dart' as http;
 class GetDataByDateCall {
 
   static Future<DataByDateStruct> call({required String date}) async {
-    // final url = 'http://35.154.50.182:8080/getDataByDate'; // Replace with your actual API endpoint
-    final url = 'http://192.168.186.2:8080/getDataByDate';
+    final url = 'http://13.232.191.159:8080/getDataByDate'; // Replace with your actual API endpoint
+    // final url = 'http://192.168.186.2:8080/getDataByDate';
     final headers = {
       'Content-Type': 'application/json',
       'Accept': 'application/json',

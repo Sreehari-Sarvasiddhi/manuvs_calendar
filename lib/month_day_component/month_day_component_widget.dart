@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:manuvs_calendar/model_and_themes/FlutterFlowTheme.dart';
 import 'package:manuvs_calendar/model_and_themes/flultter_flow_model.dart';
 import 'package:manuvs_calendar/model_and_themes/flutter_flow_helpers.dart';
@@ -55,7 +56,7 @@ class _MonthDayComponentWidgetState extends State<MonthDayComponentWidget> {
         child: Text(
           widget.day!,
           style: FlutterFlowTheme.of(context).bodyMedium.override(
-            fontFamily: 'Inter',
+            fontFamily: GoogleFonts.montserrat().fontFamily,
             color: FlutterFlowTheme.of(context).secondaryText,
             fontSize: 12.0,
             letterSpacing: 0.0,

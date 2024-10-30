@@ -3,10 +3,9 @@ import 'package:manuvs_calendar/model_and_themes/flutter_flow_helpers.dart';
 import 'package:manuvs_calendar/model_and_themes/internationalization.dart';
 import 'package:manuvs_calendar/model_and_themes/custom_functions.dart';
 import 'package:manuvs_calendar/api_calls.dart';
-
-// import '/backend/api_requests/api_calls.dart';
-// import '/backend/schema/structs/index.dart';
 import 'package:flutter/material.dart';
+
+import 'package:google_fonts/google_fonts.dart';
 
 import 'day_detail_component_model.dart';
 export 'day_detail_component_model.dart';
@@ -51,14 +50,14 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 379.0,
-      height: 280.0,
-      decoration: BoxDecoration(),
+      width: MediaQuery.of(context).size.width,
+      height:  MediaQuery.of(context).size.height/3,
+      decoration: BoxDecoration(color: FlutterFlowTheme().secondaryBackground),
       child: FutureBuilder<DataByDateStruct>(
         future: GetDataByDateCall.call(
           date: dateTimeFormat(
             "yyyy/MM/dd",
-            widget!.date,
+            widget.date,
             locale: FFLocalizations.of(context).languageCode,
           ),
         ),
@@ -107,7 +106,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                       child: Text(
                                         dateTimeFormat(
                                           "MMMMEEEEd",
-                                          widget!.date,
+                                          DateTime.parse(columnGetDataByDateResponse.date),
                                           locale: FFLocalizations.of(context)
                                               .languageCode,
                                         ),
@@ -115,7 +114,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyLarge
                                             .override(
-                                          fontFamily: 'Inter',
+                                          fontFamily: GoogleFonts.montserrat().fontFamily,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
                                         ),
@@ -139,7 +138,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyLarge
                                         .override(
-                                      fontFamily: 'Inter',
+                                      fontFamily: GoogleFonts.montserrat().fontFamily,
                                       fontSize: 14.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
@@ -150,7 +149,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 10.0, 0.0, 5.0),
+                                  0.0, 5.0, 0.0, 5.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment:
@@ -162,7 +161,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyLarge
                                         .override(
-                                      fontFamily: 'Inter',
+                                      fontFamily: GoogleFonts.montserrat().fontFamily,
                                       fontSize: 14.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
@@ -173,7 +172,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyLarge
                                         .override(
-                                      fontFamily: 'Inter',
+                                      fontFamily: GoogleFonts.montserrat().fontFamily,
                                       fontSize: 14.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
@@ -184,7 +183,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 10.0, 0.0, 5.0),
+                                  0.0, 5.0, 0.0, 5.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment:
@@ -196,7 +195,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyLarge
                                         .override(
-                                      fontFamily: 'Inter',
+                                      fontFamily: GoogleFonts.montserrat().fontFamily,
                                       fontSize: 14.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
@@ -207,7 +206,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyLarge
                                         .override(
-                                      fontFamily: 'Inter',
+                                      fontFamily: GoogleFonts.montserrat().fontFamily,
                                       fontSize: 14.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
@@ -238,7 +237,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
-                                        fontFamily: 'Inter',
+                                        fontFamily: GoogleFonts.montserrat().fontFamily,
                                         fontSize: 14.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
@@ -249,8 +248,8 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
-                                        fontFamily: 'Inter',
-                                        fontSize: 14.0,
+                                        fontFamily: GoogleFonts.montserrat().fontFamily,
+                                        fontSize: 12.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -272,7 +271,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
-                                        fontFamily: 'Inter',
+                                        fontFamily: GoogleFonts.montserrat().fontFamily,
                                         fontSize: 14.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
@@ -283,8 +282,8 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
-                                        fontFamily: 'Inter',
-                                        fontSize: 14.0,
+                                        fontFamily: GoogleFonts.montserrat().fontFamily,
+                                        fontSize: 12.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -295,7 +294,11 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                             ],
                           ),
                         ),
-                        Column(
+                  Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(
+                  0.0, 5.0, 0.0, 0.0),
+                  child:
+                  Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Row(
@@ -316,8 +319,8 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
-                                        fontFamily: 'Inter',
-                                        fontSize: 14.0,
+                                        fontFamily: GoogleFonts.montserrat().fontFamily,
+                                        fontSize: 12.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -338,8 +341,8 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
-                                        fontFamily: 'Inter',
-                                        fontSize: 14.0,
+                                        fontFamily: GoogleFonts.montserrat().fontFamily,
+                                        fontSize: 12.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -350,6 +353,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                             ),
                           ],
                         ),
+                            ),
                       ],
                     );
                   } else {
@@ -362,7 +366,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                             children: [
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 10.0, 0.0, 5.0),
+                                    0.0, 30.0, 0.0, 5.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment:
@@ -372,14 +376,14 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                     Text(
                                       "Could not retrieve Daily Data for ${dateTimeFormat(
                                         "MMMMd",
-                                        widget.date,
+                                        DateTime.parse(columnGetDataByDateResponse.date),
                                         locale: FFLocalizations.of(context)
                                             .languageCode,
                                       )}",
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
-                                        fontFamily: 'Inter',
+                                        fontFamily: GoogleFonts.montserrat().fontFamily,
                                         fontSize: 16.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
@@ -403,7 +407,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
-                                        fontFamily: 'Inter',
+                                        fontFamily: GoogleFonts.montserrat().fontFamily,
                                         fontSize: 16.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
