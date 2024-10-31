@@ -32,7 +32,6 @@ class MonthViewComponentWidget extends StatefulWidget {
 
 class _MonthViewComponentWidgetState extends State<MonthViewComponentWidget> {
   late MonthViewComponentModel _model;
-
   @override
   void setState(VoidCallback callback) {
     super.setState(callback);
@@ -90,7 +89,7 @@ class _MonthViewComponentWidgetState extends State<MonthViewComponentWidget> {
                         locale: FFLocalizations.of(context).languageCode,
                       ),
                       style: FlutterFlowTheme.of(context).labelLarge.override(
-                        fontFamily: GoogleFonts.montserrat().fontFamily,
+                        fontFamily: FlutterFlowTheme().primaryFont.fontFamily,
                         color: FlutterFlowTheme.of(context).primaryText,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w500,
@@ -103,7 +102,7 @@ class _MonthViewComponentWidgetState extends State<MonthViewComponentWidget> {
                         locale: FFLocalizations.of(context).languageCode,
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: GoogleFonts.montserrat().fontFamily,
+                        fontFamily: FlutterFlowTheme().primaryFont.fontFamily,
                         fontSize: 16.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w600,
@@ -233,13 +232,18 @@ class _MonthViewComponentWidgetState extends State<MonthViewComponentWidget> {
                 builder: (context) {
                   final calendar =
                   functions.getCalendarForMonth(_model.inputDate ?? DateTime.now()).toList();
+                  print(" calendar length :: "+ calendar.length.toString());
+                  double mainAxisSpacing = 14.0;
 
+                  if(calendar.length / 7 == 6){
+                    mainAxisSpacing = 10.0;
+                  }
                   return GridView.builder(
                     padding: EdgeInsets.zero,
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 7,
                       crossAxisSpacing: 18.0,
-                      mainAxisSpacing: 14.0,
+                      mainAxisSpacing: mainAxisSpacing,
                       childAspectRatio: 1.0,
                     ),
                     primary: false,
@@ -310,7 +314,7 @@ class _MonthViewComponentWidgetState extends State<MonthViewComponentWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                              fontFamily: GoogleFonts.montserrat().fontFamily,
+                              fontFamily: FlutterFlowTheme().primaryFont.fontFamily,
                               color: calendarItem.isPreviousMonth ||
                                   calendarItem.isNextMonth
                                   ? (dateTimeFormat(

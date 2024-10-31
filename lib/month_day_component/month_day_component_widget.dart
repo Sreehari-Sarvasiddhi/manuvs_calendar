@@ -56,7 +56,7 @@ class _MonthDayComponentWidgetState extends State<MonthDayComponentWidget> {
         child: Text(
           widget.day!,
           style: FlutterFlowTheme.of(context).bodyMedium.override(
-            fontFamily: GoogleFonts.montserrat().fontFamily,
+            fontFamily: FlutterFlowTheme().primaryFont.fontFamily,
             color: FlutterFlowTheme.of(context).secondaryText,
             fontSize: 12.0,
             letterSpacing: 0.0,

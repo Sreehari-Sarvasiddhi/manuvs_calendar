@@ -4,6 +4,7 @@ import 'package:manuvs_calendar/model_and_themes/internationalization.dart';
 import 'package:manuvs_calendar/model_and_themes/custom_functions.dart';
 import 'package:manuvs_calendar/api_calls.dart';
 import 'package:flutter/material.dart';
+import 'package:manuvs_calendar/common_utils/common_utils.dart' as CommonUtils;
 
 import 'package:google_fonts/google_fonts.dart';
 
@@ -114,7 +115,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyLarge
                                             .override(
-                                          fontFamily: GoogleFonts.montserrat().fontFamily,
+                                          fontFamily: FlutterFlowTheme().primaryFont.fontFamily,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
                                         ),
@@ -138,8 +139,8 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyLarge
                                         .override(
-                                      fontFamily: GoogleFonts.montserrat().fontFamily,
-                                      fontSize: 14.0,
+                                      fontFamily: FlutterFlowTheme().primaryFont.fontFamily,
+
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
@@ -161,7 +162,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyLarge
                                         .override(
-                                      fontFamily: GoogleFonts.montserrat().fontFamily,
+                                      fontFamily: FlutterFlowTheme().primaryFont.fontFamily,
                                       fontSize: 14.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
@@ -172,7 +173,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyLarge
                                         .override(
-                                      fontFamily: GoogleFonts.montserrat().fontFamily,
+                                      fontFamily: FlutterFlowTheme().primaryFont.fontFamily,
                                       fontSize: 14.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
@@ -195,7 +196,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyLarge
                                         .override(
-                                      fontFamily: GoogleFonts.montserrat().fontFamily,
+                                      fontFamily: FlutterFlowTheme().primaryFont.fontFamily,
                                       fontSize: 14.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
@@ -206,7 +207,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyLarge
                                         .override(
-                                      fontFamily: GoogleFonts.montserrat().fontFamily,
+                                      fontFamily: FlutterFlowTheme().primaryFont.fontFamily,
                                       fontSize: 14.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
@@ -225,7 +226,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                             children: [
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 10.0, 0.0, 5.0),
+                                    0.0, 5.0, 0.0, 5.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment:
@@ -237,7 +238,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
-                                        fontFamily: GoogleFonts.montserrat().fontFamily,
+                                        fontFamily: FlutterFlowTheme().primaryFont.fontFamily,
                                         fontSize: 14.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
@@ -248,7 +249,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
-                                        fontFamily: GoogleFonts.montserrat().fontFamily,
+                                        fontFamily: FlutterFlowTheme().primaryFont.fontFamily,
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
@@ -271,7 +272,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
-                                        fontFamily: GoogleFonts.montserrat().fontFamily,
+                                        fontFamily: FlutterFlowTheme().primaryFont.fontFamily,
                                         fontSize: 14.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
@@ -282,7 +283,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
-                                        fontFamily: GoogleFonts.montserrat().fontFamily,
+                                        fontFamily: FlutterFlowTheme().primaryFont.fontFamily,
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
@@ -319,7 +320,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
-                                        fontFamily: GoogleFonts.montserrat().fontFamily,
+                                        fontFamily: FlutterFlowTheme().primaryFont.fontFamily,
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
@@ -341,7 +342,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
-                                        fontFamily: GoogleFonts.montserrat().fontFamily,
+                                        fontFamily: FlutterFlowTheme().primaryFont.fontFamily,
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
@@ -383,7 +384,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
-                                        fontFamily: GoogleFonts.montserrat().fontFamily,
+                                        fontFamily: FlutterFlowTheme().primaryFont.fontFamily,
                                         fontSize: 16.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
@@ -407,7 +408,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
-                                        fontFamily: GoogleFonts.montserrat().fontFamily,
+                                        fontFamily: FlutterFlowTheme().primaryFont.fontFamily,
                                         fontSize: 16.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,

@@ -146,6 +146,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
               Expanded(
                 child: Container(
                   width: screenSize.width,
+                  color: FlutterFlowTheme().secondaryBackground,
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -161,8 +162,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         ),
                       ),
                       Wrap(
-                        spacing: 16.0,
-                        runSpacing: 16.0,
+                        spacing: 10.0,
+                        runSpacing: 10.0,
                         children: [
                           wrapWithModel(
                             model: _model.dayDetailComponentModel,

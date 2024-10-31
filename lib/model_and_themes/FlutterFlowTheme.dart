@@ -1,10 +1,16 @@
 import 'TextStyleWithOverride.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
 
 class FlutterFlowTheme {
   static FlutterFlowTheme of(BuildContext context) {
     return FlutterFlowTheme();
   }
+
+
+  // Font Families
+  TextStyle primaryFont =  GoogleFonts.albertSans();
 
   // Utility colors
   Color get primaryText => const Color(0xFF14181B);
