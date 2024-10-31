@@ -51,6 +51,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
         key: scaffoldKey,
         drawer: Drawer(
           elevation: 16.0,
+          backgroundColor: FlutterFlowTheme().secondaryBackground,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [

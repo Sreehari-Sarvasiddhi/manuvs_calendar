@@ -230,7 +230,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment:
-                                  MainAxisAlignment.spaceEvenly,
+                                  MainAxisAlignment.spaceAround,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Text(
@@ -245,12 +245,12 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                       ),
                                     ),
                                     Text(
-                                      columnGetDataByDateResponse.thidhi_to,
+                                        CommonUtils.convertStringtoDate(columnGetDataByDateResponse.thidhi_to),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
                                         fontFamily: FlutterFlowTheme().primaryFont.fontFamily,
-                                        fontSize: 12.0,
+                                        fontSize: 14.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -264,7 +264,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment:
-                                  MainAxisAlignment.spaceEvenly,
+                                  MainAxisAlignment.spaceAround,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Text(
@@ -279,12 +279,12 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                       ),
                                     ),
                                     Text(
-                                      columnGetDataByDateResponse.nakshatram_to,
+                                      CommonUtils.convertStringtoDate(columnGetDataByDateResponse.nakshatram_to),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
                                         fontFamily: FlutterFlowTheme().primaryFont.fontFamily,
-                                        fontSize: 12.0,
+                                        fontSize: 14.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -316,12 +316,12 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                       size: 30.0,
                                     ),
                                     Text(
-                                      columnGetDataByDateResponse.sunrise,
+                                        CommonUtils.convertTimeFormat(columnGetDataByDateResponse.sunrise),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
                                         fontFamily: FlutterFlowTheme().primaryFont.fontFamily,
-                                        fontSize: 12.0,
+                                        fontSize: 13.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -338,12 +338,12 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                       size: 30.0,
                                     ),
                                     Text(
-                                      columnGetDataByDateResponse.sunset,
+                                      CommonUtils.convertTimeFormat(columnGetDataByDateResponse.sunset),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
                                         fontFamily: FlutterFlowTheme().primaryFont.fontFamily,
-                                        fontSize: 12.0,
+                                        fontSize: 13.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
                                       ),
