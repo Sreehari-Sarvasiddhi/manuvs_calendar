@@ -67,7 +67,7 @@ class _MonthViewComponentWidgetState extends State<MonthViewComponentWidget> {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height/2,
+      height: MediaQuery.of(context).size.height/2.2,
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
       ),
@@ -224,7 +224,7 @@ class _MonthViewComponentWidgetState extends State<MonthViewComponentWidget> {
           ),
           Container(
             width:  MediaQuery.of(context).size.width,
-            height:  MediaQuery.of(context).size.height/3,
+            height:  MediaQuery.of(context).size.height/3.3,
             decoration: const BoxDecoration(),
             child: Padding(
               padding: const EdgeInsetsDirectional.fromSTEB(19.0, 0.0, 19.0, 0.0),

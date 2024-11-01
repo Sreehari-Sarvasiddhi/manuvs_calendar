@@ -163,8 +163,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         ),
                       ),
                       Wrap(
-                        spacing: 10.0,
-                        runSpacing: 10.0,
                         children: [
                           wrapWithModel(
                             model: _model.dayDetailComponentModel,

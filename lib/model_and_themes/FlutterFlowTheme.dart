@@ -59,7 +59,7 @@ class FlutterFlowTheme {
   );
 
   TextStyleWithOverride get bodyLarge => const TextStyleWithOverride(
-    fontSize: 16,
+    fontSize: 18,
     color: Color(0xFF14181B),
     fontWeight: FontWeight.normal,
   );

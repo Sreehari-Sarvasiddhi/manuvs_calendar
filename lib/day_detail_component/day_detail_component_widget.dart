@@ -6,6 +6,8 @@ import 'package:manuvs_calendar/api_calls.dart';
 import 'package:flutter/material.dart';
 import 'package:manuvs_calendar/common_utils/common_utils.dart' as CommonUtils;
 
+import 'package:flutter/cupertino.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 
 import 'day_detail_component_model.dart';
@@ -95,7 +97,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                               alignment: AlignmentDirectional(0.0, -1.0),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 10.0, 0.0, 0.0),
+                                    0.0, 0.0, 0.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -135,12 +137,12 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Text(
-                                    columnGetDataByDateResponse.samvathsaram,
+                                    CommonUtils.toSentenceCase(
+                                    columnGetDataByDateResponse.samvathsaram),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyLarge
                                         .override(
                                       fontFamily: FlutterFlowTheme().primaryFont.fontFamily,
-
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
@@ -158,23 +160,25 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Text(
-                                    columnGetDataByDateResponse.ayanam,
+                                  CommonUtils.toSentenceCase(
+                                    columnGetDataByDateResponse.ayanam),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyLarge
                                         .override(
                                       fontFamily: FlutterFlowTheme().primaryFont.fontFamily,
-                                      fontSize: 14.0,
+                                      fontSize: 15.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
                                   Text(
-                                    columnGetDataByDateResponse.ruthuvu,
+                                    CommonUtils.toSentenceCase(
+                                    columnGetDataByDateResponse.ruthuvu),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyLarge
                                         .override(
                                       fontFamily: FlutterFlowTheme().primaryFont.fontFamily,
-                                      fontSize: 14.0,
+                                      fontSize: 15.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
@@ -192,23 +196,25 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Text(
-                                    columnGetDataByDateResponse.maasam,
+                                    CommonUtils.toSentenceCase(
+                                    columnGetDataByDateResponse.maasam),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyLarge
                                         .override(
                                       fontFamily: FlutterFlowTheme().primaryFont.fontFamily,
-                                      fontSize: 14.0,
+                                      fontSize: 15.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
                                   Text(
-                                    columnGetDataByDateResponse.paksham,
+                                    CommonUtils.toSentenceCase(
+                                    columnGetDataByDateResponse.paksham),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyLarge
                                         .override(
                                       fontFamily: FlutterFlowTheme().primaryFont.fontFamily,
-                                      fontSize: 14.0,
+                                      fontSize: 15.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
@@ -220,7 +226,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 20.0, 0.0, 0.0),
+                              0.0, 5.0, 0.0, 0.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -234,12 +240,13 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Text(
-                                      columnGetDataByDateResponse.thidhi,
+                                      CommonUtils.toSentenceCase(
+                                      columnGetDataByDateResponse.thidhi),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
                                         fontFamily: FlutterFlowTheme().primaryFont.fontFamily,
-                                        fontSize: 14.0,
+                                        fontSize: 15.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -250,7 +257,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                           .bodyLarge
                                           .override(
                                         fontFamily: FlutterFlowTheme().primaryFont.fontFamily,
-                                        fontSize: 14.0,
+                                        fontSize: 15.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -268,7 +275,8 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Text(
-                                      columnGetDataByDateResponse.nakshatram,
+                                      CommonUtils.toSentenceCase(
+                                      columnGetDataByDateResponse.nakshatram),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
@@ -297,7 +305,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                         ),
                   Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(
-                  0.0, 5.0, 0.0, 0.0),
+                  12.0, 5.0, 12.0, 0.0),
                   child:
                   Column(
                           mainAxisSize: MainAxisSize.max,
@@ -308,20 +316,22 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                               children: [
                                 Row(
                                   mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                   children: [
                                     Icon(
-                                      Icons.wb_sunny_rounded,
+                                      CupertinoIcons.sunrise,
                                       color: FlutterFlowTheme.of(context)
                                           .primaryText,
-                                      size: 30.0,
+                                      size: 20.0,
                                     ),
+                                    SizedBox(width: MediaQuery.of(context).size.width * 0.02),
                                     Text(
                                         CommonUtils.convertTimeFormat(columnGetDataByDateResponse.sunrise),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
                                         fontFamily: FlutterFlowTheme().primaryFont.fontFamily,
-                                        fontSize: 13.0,
+                                        fontSize: 15.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -330,20 +340,23 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                 ),
                                 Row(
                                   mainAxisSize: MainAxisSize.max,
+
                                   children: [
                                     Icon(
-                                      Icons.wb_sunny_outlined,
+                                      CupertinoIcons.sunset,
+                                      // Icons.wb_sunny_outlined,
                                       color: FlutterFlowTheme.of(context)
                                           .primaryText,
-                                      size: 30.0,
+                                      size: 20.0,
                                     ),
+                                    SizedBox(width: MediaQuery.of(context).size.width * 0.02),
                                     Text(
                                       CommonUtils.convertTimeFormat(columnGetDataByDateResponse.sunset),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
                                         fontFamily: FlutterFlowTheme().primaryFont.fontFamily,
-                                        fontSize: 13.0,
+                                        fontSize: 15.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
                                       ),
