@@ -12,9 +12,13 @@ String toSentenceCase(String text) {
 }
 
 String convertStringtoDate(String dateString) {
-  DateTime dateTime = DateTime.parse(dateString);
-  String formattedDate = formatDateWithOrdinal(dateTime); //DateFormat('MMMMd hh:ss').format(dateTime);
-  return formattedDate;
+  if(dateString != "") {
+    DateTime dateTime = DateTime.parse(dateString);
+    String formattedDate = formatDateWithOrdinal(
+        dateTime); //DateFormat('MMMMd hh:ss').format(dateTime);
+    return formattedDate;
+  }
+  return "";
 }
 
 String formatDateWithOrdinal(DateTime dateTime) {

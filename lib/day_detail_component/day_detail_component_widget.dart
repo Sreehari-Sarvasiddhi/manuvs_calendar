@@ -56,7 +56,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
       width: MediaQuery.of(context).size.width,
       height:  MediaQuery.of(context).size.height/3,
       decoration: BoxDecoration(color: FlutterFlowTheme().secondaryBackground),
-      child: FutureBuilder<DataByDateStruct>(
+      child: FutureBuilder<List<DataByDateStruct>>(
         future: GetDataByDateCall.call(
           date: dateTimeFormat(
             "yyyy/MM/dd",
@@ -86,7 +86,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
             children: [
               Builder(
                 builder: (context) {
-                  if ( columnGetDataByDateResponse.error == '') {
+                  if ( columnGetDataByDateResponse.isNotEmpty && columnGetDataByDateResponse.first.error == '' ) {
                     return Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -94,7 +94,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Align(
-                              alignment: AlignmentDirectional(0.0, -1.0),
+                              alignment: const AlignmentDirectional(0.0, -1.0),
                               child: Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
@@ -105,11 +105,11 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                   children: [
                                     Align(
                                       alignment:
-                                      AlignmentDirectional(-1.0, -1.0),
+                                      const AlignmentDirectional(-1.0, -1.0),
                                       child: Text(
                                         dateTimeFormat(
                                           "MMMMEEEEd",
-                                          DateTime.parse(columnGetDataByDateResponse.date),
+                                          DateTime.parse(columnGetDataByDateResponse.first.date),
                                           locale: FFLocalizations.of(context)
                                               .languageCode,
                                         ),
@@ -128,7 +128,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 10.0, 0.0, 5.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -138,7 +138,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                 children: [
                                   Text(
                                     common_utils.toSentenceCase(
-                                    columnGetDataByDateResponse.samvathsaram),
+                                    columnGetDataByDateResponse.first.samvathsaram),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyLarge
                                         .override(
@@ -151,7 +151,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 5.0, 0.0, 5.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -161,7 +161,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                 children: [
                                   Text(
                                   common_utils.toSentenceCase(
-                                    columnGetDataByDateResponse.ayanam),
+                                    columnGetDataByDateResponse.first.ayanam),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyLarge
                                         .override(
@@ -173,7 +173,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                   ),
                                   Text(
                                     common_utils.toSentenceCase(
-                                    columnGetDataByDateResponse.ruthuvu),
+                                    columnGetDataByDateResponse.first.ruthuvu),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyLarge
                                         .override(
@@ -187,7 +187,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 5.0, 0.0, 5.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -197,7 +197,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                 children: [
                                   Text(
                                     common_utils.toSentenceCase(
-                                    columnGetDataByDateResponse.maasam),
+                                    columnGetDataByDateResponse.first.maasam),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyLarge
                                         .override(
@@ -209,7 +209,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                   ),
                                   Text(
                                     common_utils.toSentenceCase(
-                                    columnGetDataByDateResponse.paksham),
+                                    columnGetDataByDateResponse.first.paksham),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyLarge
                                         .override(
@@ -225,13 +225,13 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                           ],
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 5.0, 0.0, 0.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 5.0, 0.0, 5.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -241,7 +241,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                   children: [
                                     Text(
                                       common_utils.toSentenceCase(
-                                      columnGetDataByDateResponse.thidhi),
+                                      columnGetDataByDateResponse.first.thidhi),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
@@ -252,7 +252,8 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                       ),
                                     ),
                                     Text(
-                                        common_utils.convertStringtoDate(columnGetDataByDateResponse.thidhi_to),
+                                        (columnGetDataByDateResponse.first.thidhi_full == "1") ? "All Day" :
+                                        common_utils.convertStringtoDate(columnGetDataByDateResponse.first.thidhi_to),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
@@ -265,8 +266,40 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                   ],
                                 ),
                               ),
+
+                              if (columnGetDataByDateResponse.length == 2)
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 5.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        common_utils.toSentenceCase(columnGetDataByDateResponse.elementAt(1).thidhi),
+                                        style: FlutterFlowTheme.of(context).bodyLarge.override(
+                                          fontFamily: FlutterFlowTheme().primaryFont.fontFamily,
+                                          fontSize: 15.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                      Text(
+                                        (columnGetDataByDateResponse.first.thidhi_full == "1")
+                                            ? "All Day"
+                                            : common_utils.convertStringtoDate(columnGetDataByDateResponse.elementAt(1).thidhi_to),
+                                        style: FlutterFlowTheme.of(context).bodyLarge.override(
+                                          fontFamily: FlutterFlowTheme().primaryFont.fontFamily,
+                                          fontSize: 15.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 10.0, 0.0, 5.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -276,23 +309,24 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                   children: [
                                     Text(
                                       common_utils.toSentenceCase(
-                                      columnGetDataByDateResponse.nakshatram),
+                                      columnGetDataByDateResponse.first.nakshatram),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
                                         fontFamily: FlutterFlowTheme().primaryFont.fontFamily,
-                                        fontSize: 14.0,
+                                        fontSize: 15.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
                                       ),
                                     ),
                                     Text(
-                                      common_utils.convertStringtoDate(columnGetDataByDateResponse.nakshatram_to),
+                                        (columnGetDataByDateResponse.first.nakshatram_ful == "1") ? "All Day" :
+                                        common_utils.convertStringtoDate(columnGetDataByDateResponse.first.nakshatram_to),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
                                         fontFamily: FlutterFlowTheme().primaryFont.fontFamily,
-                                        fontSize: 14.0,
+                                        fontSize: 15.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -304,7 +338,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                           ),
                         ),
                   Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(
+                  padding: const EdgeInsetsDirectional.fromSTEB(
                   12.0, 5.0, 12.0, 0.0),
                   child:
                   Column(
@@ -324,9 +358,9 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                           .primaryText,
                                       size: 20.0,
                                     ),
-                                    SizedBox(width: MediaQuery.of(context).size.width * 0.1),
+                                    SizedBox(width: MediaQuery.of(context).size.width * 0.02),
                                     Text(
-                                        common_utils.convertTimeFormat(columnGetDataByDateResponse.sunrise),
+                                        common_utils.convertTimeFormat(columnGetDataByDateResponse.first.sunrise),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
@@ -351,7 +385,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                     ),
                                     SizedBox(width: MediaQuery.of(context).size.width * 0.02),
                                     Text(
-                                      common_utils.convertTimeFormat(columnGetDataByDateResponse.sunset),
+                                      common_utils.convertTimeFormat(columnGetDataByDateResponse.first.sunset),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
@@ -379,7 +413,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 30.0, 0.0, 5.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -390,7 +424,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                     Text(
                                       "Could not retrieve Daily Data for ${dateTimeFormat(
                                         "MMMMd",
-                                        DateTime.parse(columnGetDataByDateResponse.date),
+                                        DateTime.parse(columnGetDataByDateResponse.first.date),
                                         locale: FFLocalizations.of(context)
                                             .languageCode,
                                       )}",
@@ -408,7 +442,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 10.0, 0.0, 5.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,

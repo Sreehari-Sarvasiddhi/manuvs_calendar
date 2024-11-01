@@ -73,6 +73,8 @@ class DataByDateStruct {
   String sunset;
   String occasion;
   String error;
+  String thidhi_full;
+  String nakshatram_ful;
 
   dynamic jsonBody;
 
@@ -95,7 +97,9 @@ class DataByDateStruct {
     required this.occasion,
     required this.sunrise,
     required this.sunset,
-    required this.error
+    required this.error,
+    required this.thidhi_full,
+    required this.nakshatram_ful
   });
 
   
@@ -121,6 +125,8 @@ class DataByDateStruct {
       sunset: json['sunset'],
       occasion: json['occasion'],
       error: json['error'],
+      thidhi_full: json['thidhi_full'],
+      nakshatram_ful: json['nakshatram_ful'],
     );
   }
 
