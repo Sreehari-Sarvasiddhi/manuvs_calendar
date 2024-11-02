@@ -1,5 +1,6 @@
 import 'package:animated_toggle_switch/animated_toggle_switch.dart';
 import 'package:flutter/material.dart';
+import 'package:manuvs_calendar/internet_services/internet_connectivity.dart';
 import 'package:manuvs_calendar/model_and_themes/FlutterFlowTheme.dart';
 import 'package:manuvs_calendar/model_and_themes/flultter_flow_model.dart';
 import 'package:manuvs_calendar/model_and_themes/flutter_flow_helpers.dart' as FlutterFlowHelpers;
@@ -31,21 +32,22 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     _model = createModel(context, () => HomePageModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
+
   }
 
   @override
   void dispose() {
     _model.dispose();
-
+    ConnectivityService().stopMonitoring();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
-
-    print("screen height :: " + screenSize.height.toString() );
-    print("screen width :: " + screenSize.width.toString() );
+    ConnectivityService().startMonitoring(context);
+    print("screen height :: ${screenSize.height}" );
+    print("screen width :: ${screenSize.width}" );
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(

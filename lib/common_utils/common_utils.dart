@@ -51,3 +51,9 @@ String convertTimeFormat(String time){
 
   return formattedTime;
 }
+
+String convertDateStringFormat(String date){
+  DateTime dateTime = DateFormat("yyyy/MM/dd").parse(date);
+  String formattedTime = DateFormat("yyyy-MM-dd").format(dateTime);
+  return formattedTime;
+}
