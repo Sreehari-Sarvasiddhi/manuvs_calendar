@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:manuvs_calendar/common_utils/common_utils.dart';
+import 'package:manuvs_calendar/constants/constants.dart';
 import 'package:manuvs_calendar/internet_services/internet_connectivity.dart';
 import 'package:manuvs_calendar/model_and_themes/custom_functions.dart';
 import 'package:http/http.dart' as http;
@@ -10,7 +11,7 @@ class GetDataByDateCall {
 
   static Future<List<DataByDateStruct>> call({required String date}) async {
     if (ConnectivityService().connectionStatus()) {
-      final url = 'http://65.0.18.15:8080/getDataByDate'; // Replace with your actual API endpoint
+      const url = Constants.ENDPOINT+'/getDataByDate'; // Replace with your actual API endpoint
       // final url = 'http://192.168.186.2:8080/getDataByDate';
       final headers = {
         'Content-Type': 'application/json',
