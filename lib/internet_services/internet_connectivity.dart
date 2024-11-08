@@ -19,13 +19,19 @@ class ConnectivityService {
 
   bool get isConnected => _isConnected;
 
+  void setConnection(bool connectionStatus){
+    this._isConnected = connectionStatus;
+  }
+
   bool connectionStatus(){
     return _isConnected;
   }
 
-  Future<void> startMonitoring(BuildContext context) async {
+  Future<void>  startMonitoring(BuildContext context) async {
     // Initial connectivity check
     var initialResult = await _connectivity.checkConnectivity();
+
+    print("Initial Internet connection resulst :: ${initialResult.name}");
     _updateConnectionStatus(context, initialResult);
 
     // Start listening to connectivity changes

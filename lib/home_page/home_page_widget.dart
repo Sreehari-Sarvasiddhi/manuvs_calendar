@@ -1,6 +1,7 @@
 import 'package:animated_toggle_switch/animated_toggle_switch.dart';
 import 'package:flutter/material.dart';
 import 'package:manuvs_calendar/internet_services/internet_connectivity.dart';
+import 'package:manuvs_calendar/location_dropdown/location_dropdown_widget.dart';
 import 'package:manuvs_calendar/model_and_themes/FlutterFlowTheme.dart';
 import 'package:manuvs_calendar/model_and_themes/flultter_flow_model.dart';
 import 'package:manuvs_calendar/model_and_themes/flutter_flow_helpers.dart' as FlutterFlowHelpers;
@@ -10,6 +11,8 @@ import 'package:manuvs_calendar/month_view_component/month_view_component_widget
 import 'package:manuvs_calendar/model_and_themes/internationalization.dart';
 import 'package:manuvs_calendar/model_and_themes/custom_functions.dart';
 import 'package:manuvs_calendar/day_detail_component/day_detail_component_widget.dart';
+import "package:manuvs_calendar/constants/constants.dart" as constants;
+
 import 'home_page_model.dart';
 export 'home_page_model.dart';
 
@@ -17,12 +20,13 @@ export 'home_page_model.dart';
 import 'package:flutter/rendering.dart';
 
 class HomePageWidget extends StatefulWidget {
-  const HomePageWidget({super.key});
+
+  HomePageWidget({Key? key}) : super(key: constants.Constants.homePageKey);
 
   @override
-  State<HomePageWidget> createState() => _HomePageWidgetState();
+  State<HomePageWidget> createState() => HomePageWidgetState();
 }
-class _HomePageWidgetState extends State<HomePageWidget> {
+class HomePageWidgetState extends State<HomePageWidget> {
   late HomePageModel _model;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -30,9 +34,15 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => HomePageModel());
-
+    ConnectivityService().startMonitoring(context);
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
 
+  }
+
+  void reloadContent() {
+    setState(() {
+
+    });
   }
 
   @override
@@ -45,7 +55,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
-    ConnectivityService().startMonitoring(context);
     print("screen height :: ${screenSize.height}" );
     print("screen width :: ${screenSize.width}" );
     return GestureDetector(
@@ -129,21 +138,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         scaffoldKey.currentState!.openDrawer();
                       },
                     ),
-                    Align(
-                      alignment: const AlignmentDirectional(1.0, 0.0),
-                      child: FlutterFlowIconButton(
-                        borderRadius: 8.0,
-                        buttonSize: 62.0,
-                        fillColor: const Color(0x004B39EF),
-                        icon: Icon(
-                          Icons.search,
-                          color: FlutterFlowTheme.of(context).primaryText,
-                          size: 24.0,
-                        ),
-                        onPressed: () {
-                          print('IconButton pressed ...');
-                        },
-                      ),
+                    const Align(
+                      alignment: AlignmentDirectional(1.0, 0.0),
+                      child: LocationDropDownWidget()
                     ),
                   ],
                 ),

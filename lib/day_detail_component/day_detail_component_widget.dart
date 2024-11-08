@@ -1,10 +1,11 @@
+import 'package:manuvs_calendar/common_utils/common_utils.dart';
 import 'package:manuvs_calendar/model_and_themes/FlutterFlowTheme.dart';
 import 'package:manuvs_calendar/model_and_themes/flutter_flow_helpers.dart';
 import 'package:manuvs_calendar/model_and_themes/internationalization.dart';
 import 'package:manuvs_calendar/model_and_themes/custom_functions.dart';
 import 'package:manuvs_calendar/api_calls.dart';
 import 'package:flutter/material.dart';
-import 'package:manuvs_calendar/common_utils/common_utils.dart' as common_utils;
+import 'package:manuvs_calendar/common_utils/common_utils.dart';
 
 import 'package:flutter/cupertino.dart';
 
@@ -137,7 +138,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Text(
-                                    common_utils.toSentenceCase(
+                                    toSentenceCase(
                                     columnGetDataByDateResponse.first.samvathsaram),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyLarge
@@ -160,7 +161,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Text(
-                                  common_utils.toSentenceCase(
+                                  toSentenceCase(
                                     columnGetDataByDateResponse.first.ayanam),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyLarge
@@ -172,7 +173,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                     ),
                                   ),
                                   Text(
-                                    common_utils.toSentenceCase(
+                                    toSentenceCase(
                                     columnGetDataByDateResponse.first.ruthuvu),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyLarge
@@ -196,7 +197,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Text(
-                                    common_utils.toSentenceCase(
+                                    toSentenceCase(
                                     columnGetDataByDateResponse.first.maasam),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyLarge
@@ -208,7 +209,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                     ),
                                   ),
                                   Text(
-                                    common_utils.toSentenceCase(
+                                    toSentenceCase(
                                     columnGetDataByDateResponse.first.paksham),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyLarge
@@ -240,7 +241,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Text(
-                                      common_utils.toSentenceCase(
+                                      toSentenceCase(
                                       columnGetDataByDateResponse.first.thidhi),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
@@ -253,7 +254,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                     ),
                                     Text(
                                         (columnGetDataByDateResponse.first.thidhi_full == "1") ? "All Day" :
-                                        common_utils.convertStringtoDate(columnGetDataByDateResponse.first.thidhi_to),
+                                        convertStringtoDate(convertByDesantharaKaalamDateTime(columnGetDataByDateResponse.first.thidhi_to)),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
@@ -276,7 +277,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                     crossAxisAlignment: CrossAxisAlignment.center,
                                     children: [
                                       Text(
-                                        common_utils.toSentenceCase(columnGetDataByDateResponse.elementAt(1).thidhi),
+                                        toSentenceCase(columnGetDataByDateResponse.elementAt(1).thidhi),
                                         style: FlutterFlowTheme.of(context).bodyLarge.override(
                                           fontFamily: FlutterFlowTheme().primaryFont.fontFamily,
                                           fontSize: 15.0,
@@ -287,7 +288,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                       Text(
                                         (columnGetDataByDateResponse.first.thidhi_full == "1")
                                             ? "All Day"
-                                            : common_utils.convertStringtoDate(columnGetDataByDateResponse.elementAt(1).thidhi_to),
+                                            : convertStringtoDate(convertByDesantharaKaalamDateTime(columnGetDataByDateResponse.elementAt(1).thidhi_to)),
                                         style: FlutterFlowTheme.of(context).bodyLarge.override(
                                           fontFamily: FlutterFlowTheme().primaryFont.fontFamily,
                                           fontSize: 15.0,
@@ -308,7 +309,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Text(
-                                      common_utils.toSentenceCase(
+                                      toSentenceCase(
                                       columnGetDataByDateResponse.first.nakshatram),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
@@ -321,7 +322,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                     ),
                                     Text(
                                         (columnGetDataByDateResponse.first.nakshatram_ful == "1") ? "All Day" :
-                                        common_utils.convertStringtoDate(columnGetDataByDateResponse.first.nakshatram_to),
+                                        convertStringtoDate(convertByDesantharaKaalamDateTime(columnGetDataByDateResponse.first.nakshatram_to)),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
@@ -360,7 +361,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                     ),
                                     SizedBox(width: MediaQuery.of(context).size.width * 0.02),
                                     Text(
-                                        common_utils.convertTimeFormat(columnGetDataByDateResponse.first.sunrise),
+                                        convertTimeFormat(convertByDesantharaKaalamTime(columnGetDataByDateResponse.first.sunrise)),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
@@ -385,7 +386,7 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                     ),
                                     SizedBox(width: MediaQuery.of(context).size.width * 0.02),
                                     Text(
-                                      common_utils.convertTimeFormat(columnGetDataByDateResponse.first.sunset),
+                                      convertTimeFormat(convertByDesantharaKaalamTime(columnGetDataByDateResponse.first.sunset)),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(

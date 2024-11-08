@@ -1,4 +1,7 @@
+import 'dart:math';
+
 import 'package:intl/intl.dart';
+import 'package:manuvs_calendar/location_dropdown/location_singleton.dart';
 
 String toSentenceCase(String text) {
   if (text.isEmpty) return text;
@@ -9,6 +12,37 @@ String toSentenceCase(String text) {
       ? ''
       : '${word[0].toUpperCase()}${word.substring(1).toLowerCase()}')
       .join(' ');
+}
+
+String convertByDesantharaKaalamDateTime(String dateString){
+  DateTime dateTime = DateTime.parse(dateString);
+  int desantharaKaalamTime;
+  try{
+    desantharaKaalamTime = LocationSingletonData().selectedLocation.time ??
+        0;
+  }
+  catch(Exception)
+    {
+      desantharaKaalamTime = 0;
+    }
+  dateTime = dateTime.add(Duration(minutes: desantharaKaalamTime));
+  return DateFormat("yyyy-MM-dd HH:mm:ss").format(dateTime);
+}
+
+String convertByDesantharaKaalamTime(String timeString){
+  DateTime dateTime = DateFormat("HH:mm:ss").parse(timeString);
+
+  int desantharaKaalamTime;
+  try{
+    desantharaKaalamTime = LocationSingletonData().selectedLocation.time ??
+        0;
+  }
+  catch(Exception)
+  {
+    desantharaKaalamTime = 0;
+  }
+  dateTime = dateTime.add(Duration(minutes: desantharaKaalamTime));
+  return DateFormat("HH:mm:ss").format(dateTime);
 }
 
 String convertStringtoDate(String dateString) {

@@ -9,6 +9,7 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   ///  Local state fields for this page.
 
   DateTime? selectedDate;
+  String? dropDownValue;
 
   ///  State fields for stateful widgets in this page.
 
