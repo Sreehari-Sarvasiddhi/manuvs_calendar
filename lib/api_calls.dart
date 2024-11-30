@@ -11,7 +11,9 @@ class GetDataByDateCall {
 
   static Future<List<DataByDateStruct>> call({required String date}) async {
     if (ConnectivityService().connectionStatus()) {
-      const url = Constants.ENDPOINT+'/getDataByDate'; // Replace with your actual API endpoint
+
+      const url = Constants.LOCAL_ENDPOINT+'/getTransoformedDataByDate';
+      // const url = Constants.ENDPOINT+'/getDataByDate'; // Replace with your actual API endpoint
       // final url = 'http://192.168.186.2:8080/getDataByDate';
       final headers = {
         'Content-Type': 'application/json',
@@ -39,12 +41,53 @@ class GetDataByDateCall {
 
         return dataList;
       } else {
-        throw Exception('Failed to load data');
+        // throw Exception('Failed to load data');
+
+        List<DataByDateStruct> errorList = [];
+        DataByDateStruct error = DataByDateStruct(id: -999, date: convertDateStringFormat(date), samvathsaram: "", ayanam: "", ruthuvu: "", maasam: "", month: "", day: "", paksham: "", thidhi: "", thidhi_to: "", thidhi_from: "", nakshatram: "", nakshatram_from: "", nakshatram_to: "", occasion: "", sunrise: "", sunset: "", error: "Internet Connection Not Found", thidhi_full: "", nakshatram_ful: "", samvathsaram_peru: "",
+          ayanam_peru: "",
+          ruthuvu_peru: "",
+          month_peru: "",
+          day_peru: "",
+          maasam_peru: "",
+          paksham_peru: "",
+          thidhi_peru: "",
+          nakshatram_peru: "",
+          thidhi_from_en: "",
+          thidhi_to_en: "",
+          thidhi_from_te: "",
+          thidhi_to_te: "",
+          nakshatram_from_en: "",
+          nakshatram_to_en: "",
+          nakshatram_from_te: "",
+          nakshatram_to_te: ""
+
+        );
+        errorList.add(error);
+        return errorList;
       }
     }
     else {
       List<DataByDateStruct> errorList = [];
-      DataByDateStruct error = DataByDateStruct(id: -999, date: convertDateStringFormat(date), samvathsaram: "", ayanam: "", ruthuvu: "", maasam: "", month: "", day: "", paksham: "", thidhi: "", thidhi_to: "", thidhi_from: "", nakshatram: "", nakshatram_from: "", nakshatram_to: "", occasion: "", sunrise: "", sunset: "", error: "Internet Connection Not Found", thidhi_full: "", nakshatram_ful: "");
+      DataByDateStruct error = DataByDateStruct(id: -999, date: convertDateStringFormat(date), samvathsaram: "", ayanam: "", ruthuvu: "", maasam: "", month: "", day: "", paksham: "", thidhi: "", thidhi_to: "", thidhi_from: "", nakshatram: "", nakshatram_from: "", nakshatram_to: "", occasion: "", sunrise: "", sunset: "", error: "Internet Connection Not Found", thidhi_full: "", nakshatram_ful: "", samvathsaram_peru: "",
+          ayanam_peru: "",
+          ruthuvu_peru: "",
+          month_peru: "",
+          day_peru: "",
+          maasam_peru: "",
+          paksham_peru: "",
+          thidhi_peru: "",
+          nakshatram_peru: "",
+        thidhi_from_en: "",
+        thidhi_to_en: "",
+        thidhi_from_te: "",
+        thidhi_to_te: "",
+        nakshatram_from_en: "",
+        nakshatram_to_en: "",
+        nakshatram_from_te: "",
+        nakshatram_to_te: ""
+
+      );
       errorList.add(error);
       return errorList;
     }

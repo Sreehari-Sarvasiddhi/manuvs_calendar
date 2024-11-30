@@ -1,9 +1,4 @@
 
-// import 'lat_lng.dart';
-// import 'place.dart';
-// import 'uploaded_file.dart';
-// import '/backend/schema/structs/index.dart';
-
 // import 'dart:ffi';
 List<CalendarDayStruct> getCalendarForMonth(DateTime inputDate) {
   List<CalendarDayStruct> calendar = [];
@@ -68,13 +63,34 @@ class DataByDateStruct {
   String nakshatram;
   String nakshatram_from;
   String nakshatram_to;
-  
+
+  String thidhi_from_en;
+  String thidhi_to_en;
+  String thidhi_from_te;
+  String thidhi_to_te;
+
+  String nakshatram_from_en;
+  String nakshatram_to_en;
+  String nakshatram_from_te;
+  String nakshatram_to_te;
+
   String sunrise;
   String sunset;
   String occasion;
   String error;
   String thidhi_full;
   String nakshatram_ful;
+
+
+  String samvathsaram_peru;
+  String ayanam_peru;
+  String ruthuvu_peru;
+  String month_peru;
+  String day_peru;
+  String maasam_peru;
+  String paksham_peru;
+  String thidhi_peru;
+  String nakshatram_peru;
 
   dynamic jsonBody;
 
@@ -99,7 +115,29 @@ class DataByDateStruct {
     required this.sunset,
     required this.error,
     required this.thidhi_full,
-    required this.nakshatram_ful
+    required this.nakshatram_ful,
+
+
+    required this.nakshatram_from_en,
+    required this.nakshatram_to_en,
+    required this.nakshatram_from_te,
+    required this.nakshatram_to_te,
+
+    required this.thidhi_from_en,
+    required this.thidhi_to_en,
+    required this.thidhi_from_te,
+    required this.thidhi_to_te,
+
+
+    required this.samvathsaram_peru,
+    required this.ayanam_peru,
+    required this.ruthuvu_peru,
+    required this.month_peru,
+    required this.day_peru,
+    required this.maasam_peru,
+    required this.paksham_peru,
+    required this.thidhi_peru,
+    required this.nakshatram_peru,
   });
 
   
@@ -127,6 +165,26 @@ class DataByDateStruct {
       error: json['error'],
       thidhi_full: json['thidhi_full'],
       nakshatram_ful: json['nakshatram_ful'],
+
+      samvathsaram_peru: json['samvathsaram_peru'],
+      ayanam_peru: json['ayanam_peru'],
+      ruthuvu_peru: json['ruthuvu_peru'],
+      month_peru: json['month_peru'],
+      day_peru: json['day_peru'],
+      maasam_peru: json['maasam_peru'],
+      paksham_peru: json['paksham_peru'],
+      thidhi_peru: json['thidhi_peru'],
+      nakshatram_peru: json['nakshatram_peru'],
+
+      nakshatram_from_en: json['nakshatram_from_en'],
+      nakshatram_to_en: json['nakshatram_to_en'],
+      nakshatram_from_te: json['nakshatram_from_te'],
+      nakshatram_to_te: json['nakshatram_to_te'],
+
+      thidhi_from_en: json['thidhi_from_en'],
+      thidhi_to_en: json['thidhi_to_en'],
+      thidhi_from_te: json['thidhi_from_te'],
+      thidhi_to_te: json['thidhi_to_te']
     );
   }
 

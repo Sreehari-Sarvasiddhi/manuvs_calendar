@@ -1,5 +1,9 @@
 
 import 'package:google_fonts/google_fonts.dart';
+import 'package:manuvs_calendar/common_utils/common_utils.dart';
+import 'package:manuvs_calendar/common_utils/day_by_lang_service.dart';
+import 'package:manuvs_calendar/common_utils/month_by_lang_service.dart';
+import 'package:manuvs_calendar/language_toggle.dart';
 import 'package:manuvs_calendar/model_and_themes/FlutterFlowTheme.dart';
 import 'package:manuvs_calendar/model_and_themes/flutter_flow_helpers.dart';
 import 'package:manuvs_calendar/model_and_themes/flutter_flow_icon_button.dart';
@@ -83,11 +87,20 @@ class _MonthViewComponentWidgetState extends State<MonthViewComponentWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Text(
+                      getInitialLang() == Languages.english ?
+                      MonthByLang.fromKey(
                       dateTimeFormat(
-                        "MMMM",
-                        _model.inputDate,
+                        "MM",
+                        _model.inputDate ?? getCurrentTimestamp,
                         locale: FFLocalizations.of(context).languageCode,
-                      ),
+                      ))!.english
+                      : MonthByLang.fromKey(
+                          dateTimeFormat(
+                            "MM",
+                            _model.inputDate,
+                            locale: FFLocalizations.of(context).languageCode,
+                          ))!.telugu
+                      ,
                       style: FlutterFlowTheme.of(context).labelLarge.override(
                         fontFamily: FlutterFlowTheme().primaryFont.fontFamily,
                         color: FlutterFlowTheme.of(context).primaryText,
@@ -173,50 +186,64 @@ class _MonthViewComponentWidgetState extends State<MonthViewComponentWidget> {
                 wrapWithModel(
                   model: _model.monthDayComponentModel1,
                   updateCallback: () => safeSetState(() {}),
-                  child: const MonthDayComponentWidget(
-                    day: 'Sun',
+                  child: MonthDayComponentWidget(
+                    day: getInitialLang() == Languages.telugu ? DayByLang.fromKey(
+                        "01")!.telugu : DayByLang.fromKey(
+                        "01")!.english
                   ),
                 ),
                 wrapWithModel(
                   model: _model.monthDayComponentModel2,
                   updateCallback: () => safeSetState(() {}),
-                  child: const MonthDayComponentWidget(
-                    day: 'Mon',
+                  child: MonthDayComponentWidget(
+                    day: getInitialLang() == Languages.telugu ? DayByLang.fromKey(
+                        "02")!.telugu : DayByLang.fromKey(
+                        "02")!.english,
                   ),
                 ),
                 wrapWithModel(
                   model: _model.monthDayComponentModel3,
                   updateCallback: () => safeSetState(() {}),
-                  child: const MonthDayComponentWidget(
-                    day: 'Tue',
+                  child:  MonthDayComponentWidget(
+                    day: getInitialLang() == Languages.telugu ? DayByLang.fromKey(
+                        "03")!.telugu : DayByLang.fromKey(
+                        "03")!.english,
                   ),
                 ),
                 wrapWithModel(
                   model: _model.monthDayComponentModel4,
                   updateCallback: () => safeSetState(() {}),
-                  child: const MonthDayComponentWidget(
-                    day: 'Wed',
+                  child:  MonthDayComponentWidget(
+                    day: getInitialLang() == Languages.telugu ? DayByLang.fromKey(
+                        "04")!.telugu : DayByLang.fromKey(
+                        "04")!.english,
                   ),
                 ),
                 wrapWithModel(
                   model: _model.monthDayComponentModel5,
                   updateCallback: () => safeSetState(() {}),
-                  child: const MonthDayComponentWidget(
-                    day: 'Thu',
+                  child:  MonthDayComponentWidget(
+                    day: getInitialLang() == Languages.telugu ? DayByLang.fromKey(
+                        "05")!.telugu : DayByLang.fromKey(
+                        "05")!.english,
                   ),
                 ),
                 wrapWithModel(
                   model: _model.monthDayComponentModel6,
                   updateCallback: () => safeSetState(() {}),
-                  child: const MonthDayComponentWidget(
-                    day: 'Fri',
+                  child: MonthDayComponentWidget(
+                    day: getInitialLang() == Languages.telugu ? DayByLang.fromKey(
+                        "06")!.telugu : DayByLang.fromKey(
+                        "06")!.english,
                   ),
                 ),
                 wrapWithModel(
                   model: _model.monthDayComponentModel7,
                   updateCallback: () => safeSetState(() {}),
-                  child: const MonthDayComponentWidget(
-                    day: 'Sat',
+                  child: MonthDayComponentWidget(
+                    day: getInitialLang() == Languages.telugu ? DayByLang.fromKey(
+                        "07")!.telugu : DayByLang.fromKey(
+                        "07")!.english,
                   ),
                 ),
               ],

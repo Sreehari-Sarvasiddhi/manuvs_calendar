@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:intl/intl.dart';
+import 'package:manuvs_calendar/language_toggle.dart';
 import 'package:manuvs_calendar/location_dropdown/location_singleton.dart';
 
 String toSentenceCase(String text) {
@@ -90,4 +91,22 @@ String convertDateStringFormat(String date){
   DateTime dateTime = DateFormat("yyyy/MM/dd").parse(date);
   String formattedTime = DateFormat("yyyy-MM-dd").format(dateTime);
   return formattedTime;
+}
+
+
+Languages getInitialLang(){
+  try{
+    if(LocationSingletonData().language == Languages.english){
+      return Languages.english;
+    }else{
+      return Languages.telugu;
+    }
+  }
+  catch(_){
+    return Languages.english;
+  }
+}
+
+String getDateDayStringByLang(String dateDayString){
+  return dateDayString;
 }

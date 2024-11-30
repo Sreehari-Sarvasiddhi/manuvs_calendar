@@ -102,15 +102,15 @@ class _LocationDropDownWidgetState extends State<LocationDropDownWidget> {
             height: 40.0,
             searchHintTextStyle:
             FlutterFlowTheme.of(context).labelMedium.override(
-              fontFamily: 'Inter',
+              fontFamily: FlutterFlowTheme().primaryFont.fontFamily,
               letterSpacing: 0.0,
             ),
             searchTextStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-              fontFamily: 'Inter',
+              fontFamily: FlutterFlowTheme().primaryFont.fontFamily,
               letterSpacing: 0.0,
             ),
             textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-              fontFamily: 'Inter',
+              fontFamily: FlutterFlowTheme().primaryFont.fontFamily,
               letterSpacing: 0.0,
             ),
             hintText: "Select...",

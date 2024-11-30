@@ -1,4 +1,8 @@
 import 'package:manuvs_calendar/common_utils/common_utils.dart';
+import 'package:manuvs_calendar/common_utils/month_by_lang_service.dart';
+import 'package:manuvs_calendar/day_detail_component/daily_data_getter.dart';
+import 'package:manuvs_calendar/internet_services/internet_connectivity.dart';
+import 'package:manuvs_calendar/location_dropdown/location_singleton.dart';
 import 'package:manuvs_calendar/model_and_themes/FlutterFlowTheme.dart';
 import 'package:manuvs_calendar/model_and_themes/flutter_flow_helpers.dart';
 import 'package:manuvs_calendar/model_and_themes/internationalization.dart';
@@ -6,6 +10,8 @@ import 'package:manuvs_calendar/model_and_themes/custom_functions.dart';
 import 'package:manuvs_calendar/api_calls.dart';
 import 'package:flutter/material.dart';
 import 'package:manuvs_calendar/common_utils/common_utils.dart';
+
+import 'package:manuvs_calendar/language_toggle.dart';
 
 import 'package:flutter/cupertino.dart';
 
@@ -108,12 +114,13 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                       alignment:
                                       const AlignmentDirectional(-1.0, -1.0),
                                       child: Text(
+                                        getDateDayStringByLang(
                                         dateTimeFormat(
                                           "MMMMEEEEd",
                                           DateTime.parse(columnGetDataByDateResponse.first.date),
                                           locale: FFLocalizations.of(context)
                                               .languageCode,
-                                        ),
+                                        )),
                                         textAlign: TextAlign.start,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyLarge
@@ -138,6 +145,8 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Text(
+                                    getInitialLang() == Languages.telugu ?
+                                    columnGetDataByDateResponse.first.samvathsaram_peru :
                                     toSentenceCase(
                                     columnGetDataByDateResponse.first.samvathsaram),
                                     style: FlutterFlowTheme.of(context)
@@ -161,7 +170,9 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Text(
-                                  toSentenceCase(
+                                    getInitialLang() == Languages.telugu ?
+                                    columnGetDataByDateResponse.first.ayanam_peru :
+                                    toSentenceCase(
                                     columnGetDataByDateResponse.first.ayanam),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyLarge
@@ -173,6 +184,8 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                     ),
                                   ),
                                   Text(
+                                    getInitialLang() == Languages.telugu ?
+                                    columnGetDataByDateResponse.first.ruthuvu_peru :
                                     toSentenceCase(
                                     columnGetDataByDateResponse.first.ruthuvu),
                                     style: FlutterFlowTheme.of(context)
@@ -197,6 +210,8 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Text(
+                                    getInitialLang() == Languages.telugu ?
+                                    columnGetDataByDateResponse.first.maasam_peru :
                                     toSentenceCase(
                                     columnGetDataByDateResponse.first.maasam),
                                     style: FlutterFlowTheme.of(context)
@@ -209,6 +224,8 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                     ),
                                   ),
                                   Text(
+                                    getInitialLang() == Languages.telugu ?
+                                    columnGetDataByDateResponse.first.paksham_peru :
                                     toSentenceCase(
                                     columnGetDataByDateResponse.first.paksham),
                                     style: FlutterFlowTheme.of(context)
@@ -241,6 +258,8 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Text(
+                                      getInitialLang() == Languages.telugu ?
+                                      columnGetDataByDateResponse.first.thidhi_peru :
                                       toSentenceCase(
                                       columnGetDataByDateResponse.first.thidhi),
                                       style: FlutterFlowTheme.of(context)
@@ -253,8 +272,9 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                       ),
                                     ),
                                     Text(
-                                        (columnGetDataByDateResponse.first.thidhi_full == "1") ? "All Day" :
-                                        convertStringtoDate(convertByDesantharaKaalamDateTime(columnGetDataByDateResponse.first.thidhi_to)),
+                                        (columnGetDataByDateResponse.first.thidhi_full == "1") ?
+                  getAllDayByLang(columnGetDataByDateResponse.elementAt(0))
+                      : getThidhiByLang(columnGetDataByDateResponse.elementAt(0)),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
@@ -277,6 +297,8 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                     crossAxisAlignment: CrossAxisAlignment.center,
                                     children: [
                                       Text(
+                                        getInitialLang() == Languages.telugu ?
+                                        columnGetDataByDateResponse.elementAt(1).thidhi_peru :
                                         toSentenceCase(columnGetDataByDateResponse.elementAt(1).thidhi),
                                         style: FlutterFlowTheme.of(context).bodyLarge.override(
                                           fontFamily: FlutterFlowTheme().primaryFont.fontFamily,
@@ -287,8 +309,9 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                       ),
                                       Text(
                                         (columnGetDataByDateResponse.first.thidhi_full == "1")
-                                            ? "All Day"
-                                            : convertStringtoDate(convertByDesantharaKaalamDateTime(columnGetDataByDateResponse.elementAt(1).thidhi_to)),
+                                            ? getAllDayByLang(columnGetDataByDateResponse.elementAt(1))
+                                            : getThidhiByLang(columnGetDataByDateResponse.elementAt(1)),
+                  //convertStringtoDate(convertByDesantharaKaalamDateTime(columnGetDataByDateResponse.elementAt(1).thidhi_to)),
                                         style: FlutterFlowTheme.of(context).bodyLarge.override(
                                           fontFamily: FlutterFlowTheme().primaryFont.fontFamily,
                                           fontSize: 15.0,
@@ -308,8 +331,9 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                   MainAxisAlignment.spaceAround,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    Text(
-                                      toSentenceCase(
+                                    Text(getInitialLang() == Languages.telugu ?
+                                    columnGetDataByDateResponse.first.nakshatram_peru :
+                                    toSentenceCase(
                                       columnGetDataByDateResponse.first.nakshatram),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
@@ -321,8 +345,9 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                       ),
                                     ),
                                     Text(
-                                        (columnGetDataByDateResponse.first.nakshatram_ful == "1") ? "All Day" :
-                                        convertStringtoDate(convertByDesantharaKaalamDateTime(columnGetDataByDateResponse.first.nakshatram_to)),
+                                        (columnGetDataByDateResponse.first.nakshatram_ful == "1") ?
+                                        getAllDayByLang(columnGetDataByDateResponse.elementAt(0))
+                                            : getNakshatramByLang(columnGetDataByDateResponse.elementAt(0)),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
@@ -423,6 +448,18 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Text(
+
+                                      getInitialLang() == Languages.telugu ?
+                                        MonthByLang.fromKey(
+                                        dateTimeFormat(
+                                          "MM",
+                                        DateTime.parse(columnGetDataByDateResponse.first.date),
+                                        locale: FFLocalizations.of(context).languageCode,
+                                        ))!.telugu + " " + dateTimeFormat(
+                                          "dd",
+                                          DateTime.parse(columnGetDataByDateResponse.first.date),
+                                          locale: FFLocalizations.of(context).languageCode,
+                                        ) + "వ తేదీ సమాచారం అందుబాటులో లేదు ":
                                       "Could not retrieve Daily Data for ${dateTimeFormat(
                                         "MMMMd",
                                         DateTime.parse(columnGetDataByDateResponse.first.date),
@@ -442,7 +479,8 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                   ],
                                 ),
                               ),
-                              Padding(
+                              if (!ConnectivityService().connectionStatus())
+                                Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 10.0, 0.0, 5.0),
                                 child: Row(
@@ -452,7 +490,9 @@ class _DayDetailComponentWidgetState extends State<DayDetailComponentWidget> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Text(
-                                      "Please try again later!!",
+                                      getInitialLang() == Languages.telugu ?
+                                      "దయచేసి ఇంటర్నెట్‌కి కనెక్ట్ చేసి మళ్లీ ప్రయత్నించండి" :
+                                      "Please try again after connecting to Internet!!",
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(

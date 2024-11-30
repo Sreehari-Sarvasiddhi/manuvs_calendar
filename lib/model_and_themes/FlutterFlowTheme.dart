@@ -1,3 +1,5 @@
+import 'package:manuvs_calendar/common_utils/get_font_by_lang.dart';
+
 import 'TextStyleWithOverride.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -10,6 +12,7 @@ class FlutterFlowTheme {
 
 
   // Font Families
+  String primaryFontFamily = getFontFamily();
   TextStyle primaryFont =  GoogleFonts.albertSans();
 
   // Utility colors
@@ -20,7 +23,8 @@ class FlutterFlowTheme {
 
 
   // Brand colors
-  Color get primary => const Color(0xFF4b39ef);
+  Color get primary => const Color(0xFFc77cff);
+  // Color get primary => const Color(0xFF4b39ef);
   Color get secondary => const Color(0xFF39d2c0);
   Color get tertiary => const Color(0xFFee8b60);
   Color get alternate => const Color(0xFFe0e3e7);

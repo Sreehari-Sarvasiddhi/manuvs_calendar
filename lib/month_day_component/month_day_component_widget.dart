@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:manuvs_calendar/common_utils/common_utils.dart';
+import 'package:manuvs_calendar/language_toggle.dart';
 import 'package:manuvs_calendar/model_and_themes/FlutterFlowTheme.dart';
 import 'package:manuvs_calendar/model_and_themes/flultter_flow_model.dart';
 import 'package:manuvs_calendar/model_and_themes/flutter_flow_helpers.dart';
@@ -47,7 +49,7 @@ class _MonthDayComponentWidgetState extends State<MonthDayComponentWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 30.0,
+      width: getInitialLang() == Languages.telugu ? 35.0 : 30.0 ,
       height: 30.0,
       decoration: const BoxDecoration(),
       alignment: const AlignmentDirectional(0.0, 0.0),

@@ -1,4 +1,5 @@
 import 'package:manuvs_calendar/endpoint_calls/location_endpoint.dart';
+import 'package:manuvs_calendar/language_toggle.dart';
 
 class LocationSingletonData {
   static LocationSingletonData _instance = LocationSingletonData._();
@@ -14,5 +15,5 @@ class LocationSingletonData {
   // properties and methods
 
  late LocationDataStruct selectedLocation;
- late String language;
+ late Languages language;
 }
